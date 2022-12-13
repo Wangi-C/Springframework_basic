@@ -40,8 +40,8 @@ public class OrderServiceTest {
 
         // 필드 주입일 경우, 필드에 대한 주입이 어렵기 때문에 nullPointerException이 발생
         // -> 따로 OrderServiceImpl에 setter 메소드를 추가해주어야 한다.
-        assertThrows(NullPointerException.class,
-                () -> orderService.createOrder(1L, "itemA", 10000));
+//        assertThrows(NullPointerException.class,
+//                () -> orderService.createOrder(1L, "itemA", 10000));
     }
     
 }
