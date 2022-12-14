@@ -1,5 +1,6 @@
 package com.swclass.hello.core.order;
 
+import com.swclass.hello.core.annotation.MainDiscountPolicy;
 import com.swclass.hello.core.discount.DiscountPolicy;
 import com.swclass.hello.core.member.Member;
 import com.swclass.hello.core.member.MemberRepository;
@@ -29,7 +30,7 @@ public class OrderServiceImpl implements OrderService {
 //    }
 
     @Autowired
-    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy fixDiscountPolicy) {
+    public OrderServiceImpl(MemberRepository memberRepository,@MainDiscountPolicy DiscountPolicy fixDiscountPolicy) {
         // 파라미터에 맞는 bean을 타입으로 조회를 한다.
 
         // 필드값이 final 변수이면 생성자 주입시, compile에러를 미리 받을 수 있다.
