@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import java.util.List;
@@ -31,18 +32,17 @@ public class AllBeanTest {
         assertThat(rateDiscountPolicy).isEqualTo(2000);
     }
 
-    @RequiredArgsConstructor
     static class DiscountService {
         private final Map<String, DiscountPolicy> policyMap;
         private final List<DiscountPolicy> policies;
 
-        /*@Autowired
-        public DiscountService(Map<String, DiscountPolicy> policyMap, List<DiscountPolicy> policies) {
+        @Autowired
+        public DiscountService( Map<String, DiscountPolicy> policyMap, List<DiscountPolicy> policies) {
             this.policyMap = policyMap;
             this.policies = policies;
             System.out.println("policyMap = " + policyMap);
             System.out.println("policies = " + policies);
-        }*/
+        }
 
         public int discount(Member userA, int i, String discountCode) {
             DiscountPolicy discountPolicy = policyMap.get(discountCode);
